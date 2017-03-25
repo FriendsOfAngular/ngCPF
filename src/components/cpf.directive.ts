@@ -70,10 +70,10 @@ function validateCpfFactory() {
 @Directive({
   selector: '[validateCpf][ngModel],[validateCpf][formControl],[validateCpf][formControlName]',
   providers: [
-      { provide: NG_VALIDATORS, useExisting: forwardRef(() => CpfValidator), multi:true }
+      { provide: NG_VALIDATORS, useExisting: forwardRef(() => CpfValidatorDirective), multi:true }
   ]
 })
-export class CpfValidator implements Validator {
+export class CpfValidatorDirective implements Validator {
 
     validator: Function;
 
