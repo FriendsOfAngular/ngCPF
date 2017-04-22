@@ -9,8 +9,7 @@ export const MASKEDINPUT_VALUE_ACCESSOR: Provider = {
 
 @Directive({
   host: {
-    '(input)': 'onInput($event.target.value)',
-    '(blur)': '_onTouched()'
+    '(input)': 'onInput($event.target.value)'
   },
   selector: '[cpfMask]',
   providers: [MASKEDINPUT_VALUE_ACCESSOR]
