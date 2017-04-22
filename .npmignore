@@ -1,0 +1,9 @@
+/node_modules
+.vscode
+src/spec
+tsconfig.json
+.gitignore
+.npmignore
+.editorconfig
+src/*.js
+src/*.js.map

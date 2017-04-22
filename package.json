@@ -1,16 +1,21 @@
 {
   "name": "ngcpf",
   "version": "0.0.1",
-  "description": "A simple directive to validate cpf",
-  "main": "./src/index.js",
+  "description": "A module to validate and format cpf",
+  "main": "./dist/ngCpf.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/ngc -p tsconfig.json && rm -rf aot"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FriendsOfAngular/ngCPF.git"
   },
   "keywords": [
+    "angular",
+    "angular 2",
+    "máscara",
+    "cpf máscara",
     "cpf"
   ],
   "author": "FriendsOfAngular",
@@ -20,11 +25,19 @@
   },
   "homepage": "https://github.com/FriendsOfAngular/ngCPF#readme",
   "devDependencies": {
-    "@angular/common": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/forms": "^4.0.0",
-    "@angular/platform-browser": "^4.0.0",
+    "@angular/common": "^4.0.3",
+    "@angular/compiler": "^4.0.3",
+    "@angular/compiler-cli": "^4.0.3",
+    "@angular/core": "^4.0.3",
+    "@angular/forms": "^4.0.3",
+    "@angular/platform-browser": "^4.0.3",
+    "@types/core-js": "^0.9.41",
+    "@types/node": "^7.0.13",
+    "core-js": "^2.4.1",
     "rxjs": "^5.2.0",
+    "ts-node": "^3.0.2",
+    "tslint": "^5.1.0",
+    "typescript": "^2.2.2",
     "zone.js": "^0.8.5"
   }
 }

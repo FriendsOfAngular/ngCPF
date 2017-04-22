@@ -1,16 +1,22 @@
+
 {
   "compilerOptions": {
+    "lib": ["es2017", "dom"],
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
+    "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
-    "noEmitHelpers": true,
-    "noImplicitAny": true,
-    "declaration": false,
-    "skipLibCheck": true,
-    "stripInternal": true,
-    "lib": ["dom", "es6"]
+    "removeComments": false,
+    "noImplicitAny": false,
+    "declaration": true,
+    "outDir": "dist"
+  },
+  "files": [
+    "src/ngCpf.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "aot"
   }
 }
