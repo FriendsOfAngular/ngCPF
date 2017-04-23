@@ -1,8 +1,9 @@
 {
   "name": "ngcpf",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A module to validate and format cpf",
   "main": "./dist/ngCpf.js",
+  "typings": "./dist/ngCpf.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/ngc -p tsconfig.json && rm -rf aot"
@@ -38,6 +39,6 @@
     "ts-node": "^3.0.2",
     "tslint": "^5.1.0",
     "typescript": "^2.2.2",
-    "zone.js": "^0.8.5"
+    "zone.js": "^0.8.8"
   }
 }
