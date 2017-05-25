@@ -8,6 +8,7 @@ import { NG_VALIDATORS, AbstractControl, Validator } from '@angular/forms';
       { provide: NG_VALIDATORS, useExisting: forwardRef(() => CpfValidatorDirective), multi:true }
   ]
 })
+
 export class CpfValidatorDirective implements Validator {
 
     validator: Function;
@@ -22,12 +23,15 @@ export class CpfValidatorDirective implements Validator {
 
     private validateCpfFactory() {
         return (c: AbstractControl) => {
-            let cpf = c.value,
-                numbers,
-                digits,
+            let field = c.value,
+                cpf,
+                number,
+                digit,
                 sum,
                 result,
                 equalDigits = true;
+            
+            cpf = field.replace(/(\.|\/|\-)/g,"");
 
             if (cpf.length < 11 || cpf.length > 11) {
                 return {
@@ -45,15 +49,19 @@ export class CpfValidatorDirective implements Validator {
             }
 
             if (equalDigits === false) {
-                numbers = cpf.substring(0, 9);
-                digits = cpf.substring(9);
+
+                number = cpf.substring(0, 9);
+                digit = cpf.substring(9);
+
                 sum = 0;
+
                 for (let i = 10; i > 1; i--) {
-                    sum += numbers.charAt(10 - i) * i;
+                    sum += number.charAt(10 - i) * i;
                 }
 
                 result = sum % 11 < 2 ? 0 : 11 - sum % 11;
-                if (result != digits.charAt(0)) {
+
+                if (result != digit.charAt(0)) {
                     return {
                         validateCpf: {
                             valid: false
@@ -61,20 +69,22 @@ export class CpfValidatorDirective implements Validator {
                     };
                 }
 
-                numbers = cpf.substring(0, 10);
+                number = cpf.substring(0, 10);
+                
                 sum = 0;
                 for (let i = 11; i > 1; i--) {
-                    sum += numbers.charAt(11 - i) * i;
+                    sum += number.charAt(11 - i) * i;
                 }
+                
                 result = sum % 11 < 2 ? 0 : 11 - sum % 11;
-                if (result != digits.charAt(1)) {
+                
+                if (result != digit.charAt(1)) {
                     return {
                         validateCpf: {
                             valid: false
                         }
                     };
                 }
-
                 return null;
             }
 
@@ -86,4 +96,3 @@ export class CpfValidatorDirective implements Validator {
         }
     }
 }
-
