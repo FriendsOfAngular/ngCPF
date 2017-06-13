@@ -1,6 +1,6 @@
 {
   "name": "ngcpf",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A module to validate and format cpf",
   "main": "./dist/ngCpf.js",
   "typings": "./dist/ngCpf.d.ts",
